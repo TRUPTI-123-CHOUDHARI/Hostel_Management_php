@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="footer.css">
 <link rel="stylesheet" type="text/css" href="navi.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 
 
@@ -65,6 +66,12 @@ li a:hover:not(.active) {
 
 .active {
     background-color: #4CAF50;
+}
+h2{
+    color: #FF0000;
+}
+h3{
+    color: greenyellow;
 }
 </style>
 </head>
@@ -180,10 +187,19 @@ echo "<td>";echo $row["build"]; echo"</td>";
 echo "<td>";echo $row["floor"]; echo"</td>";
 echo "<td>";echo $row["room"]; echo"</td>";
 echo "<td>";echo $row["bed"]; echo"</td>";
-echo "<td>".$row["status"]."</td></tr>";
+echo "<td>"; $t= $row["status"] ;
+
+
+if ( $t == "APPROVED") {
+    echo '<span style="color:red;background-color:pink;text-align:center;"><i class="fa fa-address-book"></i>Approved</span>';
+} else {
+    echo '<span style="color:#AFA;text-align:center;background-color:yellow; "><i class="fa fa-address-book-o"></i>Not Approved</span>';
+}
+echo"</td></tr>";
+
 
     }
- 
+  
 }
 else {
     echo "<td> No vacant</td>";
